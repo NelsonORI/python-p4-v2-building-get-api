@@ -14,7 +14,7 @@ metadata = MetaData(
 db = SQLAlchemy(metadata=metadata)
 
 
-class Game(db.Model):
+class Game(db.Model,SerializerMixin):
     __tablename__ = "games"
 
     id = db.Column(db.Integer, primary_key=True)
@@ -31,7 +31,7 @@ class Game(db.Model):
         return f"<Game {self.title} for {self.platform}>"
 
 
-class Review(db.Model):
+class Review(db.Model,SerializerMixin):
     __tablename__ = "reviews"
 
     id = db.Column(db.Integer, primary_key=True)
